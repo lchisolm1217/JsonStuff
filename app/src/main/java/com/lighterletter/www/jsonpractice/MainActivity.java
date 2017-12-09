@@ -24,12 +24,22 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.create_json_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buildClassJson();
+                String classJson = buildClassJson();
+
+                C4QClassesFragment fragment = new C4QClassesFragment();
+                Bundle jsonBundle = new Bundle();
+                jsonBundle.putString("jsonString", classJson);
+                fragment.setArguments(jsonBundle);
+
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commit();
             }
         });
     }
 
-    private void buildClassJson() {
+    private String buildClassJson() {
         JSONObject c4q = new JSONObject();
         try {
 
@@ -53,12 +63,11 @@ public class MainActivity extends AppCompatActivity {
                             .put(new JSONObject().put("name", "ana"))
             );
 
-            ((TextView) findViewById(R.id.text_view)).setText(c4q.toString());
-
-            Log.d(TAG, "onClick: " + c4q.toString());
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        Log.d(TAG, "onClick: " + c4q.toString());
+        return c4q.toString();
     }
 }
