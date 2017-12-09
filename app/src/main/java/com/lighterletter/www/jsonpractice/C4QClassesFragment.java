@@ -3,6 +3,7 @@ package com.lighterletter.www.jsonpractice;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,12 @@ public class C4QClassesFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String jsonString = getArguments().getString("jsonString");
+        String jsonString = getArguments().getString(Constants.JSON_BUNDLE_KEY);
         Log.d(TAG, "onViewCreated: " + jsonString);
+
+        RecyclerView c4qRv = (RecyclerView) view.findViewById(R.id.c4q_class_rv);
+
+
+
     }
 }

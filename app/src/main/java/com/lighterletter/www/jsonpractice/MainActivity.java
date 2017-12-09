@@ -4,16 +4,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+/**
+ * This is a documment
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
-    private String builtJson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
                 C4QClassesFragment fragment = new C4QClassesFragment();
                 Bundle jsonBundle = new Bundle();
-                jsonBundle.putString("jsonString", classJson);
+                jsonBundle.putString(Constants.JSON_BUNDLE_KEY, classJson);
                 fragment.setArguments(jsonBundle);
 
                 getFragmentManager()
@@ -42,25 +45,32 @@ public class MainActivity extends AppCompatActivity {
     private String buildClassJson() {
         JSONObject c4q = new JSONObject();
         try {
-
-            c4q.put("android_class",
+            c4q.put("fellows",
                     new JSONArray()
-                            .put(new JSONObject().put("name", "mike"))
-                            .put(new JSONObject().put("name", "lisa"))
-            );
-
-            c4q.put(
-                    "ios_class",
-                    new JSONArray()
-                            .put(new JSONObject().put("name", "shawn"))
-                            .put(new JSONObject().put("name", "stacy"))
-            );
-
-            c4q.put(
-                    "web_class",
-                    new JSONArray()
-                            .put(new JSONObject().put("name", "luke"))
-                            .put(new JSONObject().put("name", "ana"))
+                            .put(new JSONObject()
+                                    .put("name", "mike")
+                                    .put("class", "android")
+                            )
+                            .put(new JSONObject()
+                                    .put("name", "lisa")
+                                    .put("class", "android")
+                            )
+                            .put(new JSONObject()
+                                    .put("name", "shawn")
+                                    .put("class", "ios")
+                            )
+                            .put(new JSONObject()
+                                    .put("name", "stacy")
+                                    .put("class", "ios")
+                            )
+                            .put(new JSONObject()
+                                    .put("name", "luke")
+                                    .put("class", "web")
+                            )
+                            .put(new JSONObject()
+                                    .put("name", "ana")
+                                    .put("class", "web")
+                            )
             );
 
         } catch (JSONException e) {
