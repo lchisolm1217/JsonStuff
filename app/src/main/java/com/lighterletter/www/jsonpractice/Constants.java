@@ -1,7 +1,7 @@
 package com.lighterletter.www.jsonpractice;
 
 /**
- * Created by john on 12/9/17.
+ * Class to contain static final strings
  */
 
 class Constants {

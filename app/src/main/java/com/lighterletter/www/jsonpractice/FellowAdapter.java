@@ -10,7 +10,7 @@ import com.lighterletter.www.jsonpractice.model.Fellow;
 import java.util.List;
 
 /**
- * Created by john on 12/9/17.
+ * Fellow adapter
  */
 
 class FellowAdapter extends RecyclerView.Adapter {

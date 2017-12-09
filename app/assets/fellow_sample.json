@@ -1,0 +1,28 @@
+{
+  "fellows": [
+    {
+      "name": "mike",
+      "cohort": "android"
+    },
+    {
+      "name": "lisa",
+      "cohort": "android"
+    },
+    {
+      "name": "shawn",
+      "cohort": "ios"
+    },
+    {
+      "name": "stacy",
+      "cohort": "ios"
+    },
+    {
+      "name": "luke",
+      "cohort": "web"
+    },
+    {
+      "name": "ana",
+      "cohort": "web"
+    }
+  ]
+}

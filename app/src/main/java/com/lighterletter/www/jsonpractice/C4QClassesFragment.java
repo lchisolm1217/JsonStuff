@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by john on 12/9/17.
+ * Fragment to display Fellows
  */
 
 public class C4QClassesFragment extends Fragment {
@@ -39,36 +39,12 @@ public class C4QClassesFragment extends Fragment {
         String jsonString = getArguments().getString(Constants.JSON_BUNDLE_KEY);
         Log.d(TAG, "onViewCreated: " + jsonString);
 
-        List<Fellow> fellowList = getFellowsFromJSON(jsonString);
+        List<Fellow> fellowList = JsonHelper.getFellowsFromJSON(jsonString);
 
         Log.d(TAG, "onViewCreated: fellows: " + fellowList.size());
         RecyclerView c4qRv = (RecyclerView) view.findViewById(R.id.c4q_class_rv);
         c4qRv.setLayoutManager(new LinearLayoutManager(view.getContext()));
         c4qRv.setAdapter(new FellowAdapter(fellowList));
-
-
     }
 
-    private List<Fellow> getFellowsFromJSON(String jsonString) {
-        List<Fellow> fellowList = new ArrayList<>();
-        try {
-
-            JSONObject jsonObject = new JSONObject(jsonString);
-            JSONArray list = jsonObject.getJSONArray("fellows");
-
-            for (int i = 0; i < list.length(); i++) {
-                Fellow fellow = new Fellow();
-
-                JSONObject obj = (JSONObject) list.get(i);
-
-                fellow.setName(obj.getString("name"));
-                fellow.setCohort(obj.getString("cohort"));
-                fellowList.add(fellow);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return fellowList;
-    }
 }

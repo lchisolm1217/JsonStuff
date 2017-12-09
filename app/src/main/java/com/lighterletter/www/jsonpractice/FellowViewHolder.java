@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.lighterletter.www.jsonpractice.model.Fellow;
 
 /**
- * Created by john on 12/9/17.
+ * Fellow View Holder
  */
 
 class FellowViewHolder extends RecyclerView.ViewHolder {
